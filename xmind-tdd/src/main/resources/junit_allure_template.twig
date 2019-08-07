@@ -1,0 +1,28 @@
+package io.xtests.toolkits.hutool.date;
+
+
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
+import io.qameta.allure.Feature;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+
+
+@Epic("{{context.epic}}")
+@Feature("{{context.epic}}")
+public class {{context.epic}}Test {
+
+   {% for entry in context.features.entrySet() %}
+    {% for feature in entry.value() %}
+        @Test
+        @DisplayName("{{context.epic}}-{{feature.desc}}")
+        @Story(value ="{{feature.desc}}" )
+        public void test{{feature.name}}(){
+            //write testing codes
+          throw new RuntimeException("Not Implemented");
+        }
+    {% endfor %}
+   {% endfor %}
+}
