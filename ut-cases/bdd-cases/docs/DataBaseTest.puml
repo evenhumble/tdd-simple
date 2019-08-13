@@ -1,0 +1,10 @@
+@startuml
+Client -> Database: Begin TXN
+Client -> Database: Insert/Update Data
+Client -> Application: Do Something
+Application -> Database: Read Data
+Application -> Client: Do Something Failed
+Client -> Database: Rollback TXN
+Database -> Database: delete/rollback insert/update data
+
+@enduml

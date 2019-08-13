@@ -1,0 +1,10 @@
+@startuml
+(*)  --> "your project"
+--> "Features"
+--> "Scenarios"
+--> "Steps"
+--> "Step Definition"
+--> "Support Code"
+--> "Automation Library"
+-->"Your System"
+@enduml

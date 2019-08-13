@@ -1,0 +1,7 @@
+@startuml
+Input -> ToDoItemService: Send ToDoDTO  to Service
+ToDoItemService --> Output: create a new ToDoItem
+ToDoItemService --> Output: update ToDoDTO a new ToDoItem
+ToDoItemService --> Output: delete ToDoDTO a new ToDoItem
+ToDoItemService --> Output: complete ToDoDTO a new ToDoItem
+@enduml
