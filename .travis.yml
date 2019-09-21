@@ -1,12 +1,12 @@
 language: java
-jdk:ss
+jdk:
   - openjdk10
   - openjdk11
 script:
   - mvn clean package
 env:
   global:
-    - CODECOV_TOKEN=a07afb7d-4476-4fa9-bb25-5854fc39cf2c
+    - CODECOV_TOKEN="a07afb7d-4476-4fa9-bb25-5854fc39cf2c"
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - echo "build successfully"
