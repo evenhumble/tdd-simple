@@ -1,0 +1,19 @@
+server:
+  port: 9091
+  error:
+    path: /web-error
+  servlet:
+    session:
+      timeout: 60
+  tomcat:
+    max-connections: 10000
+    uri-encoding: utf-8
+    basedir: /tmp/log
+    max-threads: 1000
+logging:
+  file: helloworld.log
+  path: /tmp/log
+
+spring:
+  profiles:
+    active: dev
