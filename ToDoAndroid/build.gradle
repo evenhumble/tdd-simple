@@ -1,0 +1,261 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.1'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath 'org.jacoco:org.jacoco.core:0.8.1'
+
+    }
+}
+def sonarUrl = "http://52.187.23.25:9000"
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+    }
+}
+
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
+
+//subprojects {
+//    apply plugin: "org.sonarqube"
+//    apply plugin: 'jacoco'
+//}
+
+apply plugin: "org.sonarqube"
+apply plugin: 'jacoco'
+apply plugin: "java"
+
+// set your sonar url server
+sonarqube {
+    properties {
+        property "sonar.host.url", sonarUrl
+        property "sonar.login", "admin"
+        property "sonar.password", "admin"
+        property "sonar.projectKey", "AndroidUTDemo"
+        property "sonar.projectName", "AndroidUTDemo"
+        property "sonar.projectVersion", "v1"
+        property "sonar.sourceEncoding", "UTF-8"
+    }
+}
+//
+//def jacocoVersion = "0.8.4"
+//
+//
+//jacocoTestReport {
+//    reports {
+//        xml.enabled false
+//        csv.enabled false
+//        html.destination file("${buildDir}/jacocoHtml")
+//    }
+//}
+
+//task jacocoFullReport(type:JacocoReport) {
+//    executionData run
+//    sourceSets sourceSets.main
+//}
+
+//project.tasks.sonarqube.dependsOn 'jacocoFullReport'
+//
+//// ********************************************************************************************************
+//// ****************************** modify this maps for your project ***************************************
+//// ********************************************************************************************************
+//
+//def projectFlavorMap = ['app': 'debug',
+////                        'module1' : 'debug',
+////                        'module2' : 'debug',
+////                        'module3' : '-' // this is not android project, but simple java project
+//]
+//
+//def projectJacocoReportPath = ['app': 'build/jacoco/testDebugUnitTest.exec',
+////                                'module1' : 'build/jacoco/testDebugUnitTest.exec',
+////                                'module2' : 'build/jacoco/testDebugUnitTest.exec',
+////                                'module3' : 'build/jacoco/test.exec'
+//]
+//
+//def projectXMLReportPath = ['app': 'build/reports/jacoco/jacocoReport/jacocoReport.xml',
+////                                'module1' : 'build/test-results/debug',
+////                                'module2' : 'build/test-results/debug',
+////                                'module3' : 'build/test-results'
+//]
+//
+//def projectJavaBinaries = ['app': 'build/intermediates/classes/debug',
+////                               'module1' : 'build/intermediates/classes/debug',
+////                               'module2' : 'build/intermediates/classes/debug',
+////                               'module3' : 'build/classes'
+//]
+//
+//def projectJacocoReportTaskDependsOn = ['app': 'testDebugUnitTest',
+////                                            'module1' : 'testDebugUnitTest',
+////                                            'module2' : 'testDebugUnitTest',
+////                                            'module3' : 'test'
+//]
+//// ********************************************************************************************************
+//
+//subprojects { prj ->
+//
+//    if (projectFlavorMap.containsKey(prj.name)) {
+//        apply plugin: 'jacoco'
+//        jacoco {
+//            version jacocoVersion
+//        }
+//
+////        task jacocoReport(type: JacocoReport) {
+////            group = 'Reporting'
+////            description = 'Generate Jacoco coverage reports after running tests.'
+////
+////            reports {
+////                xml.enabled = true
+////                html.enabled = true
+////            }
+////
+////            classDirectories = fileTree(
+////                    dir: 'build/intermediates/classes/debug',
+////                    excludes: [
+////                            '**/R*.class',
+////                            '**/BuildConfig*',
+////                            '**/Lambda$*.class',
+////                            '**/Lambda.class',
+////                            '**/*Lambda.class',
+////                            '**/*Lambda*.class'
+////                    ]
+////            )
+////
+////            sourceDirectories = files('src/main/java')
+////            executionData = fileTree(dir: project.projectDir, includes: ['**/*.exec', '**/*.ec'])
+//
+////            doFirst {
+////                files('build/intermediates/classes/debug').getFiles().each { file ->
+////                    if (file.name.contains('$$')) {
+////                        file.renameTo(file.path.replace('$$', '$'))
+////                    }
+////                }
+////            }
+//
+//            jacocoTestReport {
+//                reports {
+//                    xml.enabled true
+//                    csv.enabled false
+//                    html.destination file("${buildDir}/jacocoHtml")
+//                }
+//            }
+//        }
+//
+//        sonarqube {
+//            properties {
+//                property "sonar.host.url", sonarUrl
+//                property "sonar.sources", "src/main"
+//                if (checkIfFolderExists("src/test")) {
+//                    property "sonar.tests", "src/test"
+//                }
+//                property "sonar.java.coveragePlugin", "jacoco"
+//                property "sonar.jacoco.reportPath", projectJacocoReportPath.get(prj.name)
+//                property "sonar.coverage.jacoco.xmlReportPaths", projectXMLReportPath.get(prj.name)
+//            }
+//        }
+//
+//        jacocoReport.dependsOn projectJacocoReportTaskDependsOn.get(prj.name)
+//    }
+//}
+//
+//def checkIfFolderExists(String folderName) {
+//    def folder = new File(folderName)
+//    if (folder.exists()) {
+//        return true
+//    } else {
+//        return false
+//    }
+//}
+//
+//jacoco {
+//    toolVersion jacocoVersion
+//    reportsDir = file("$buildDir/jacocoReport")
+//}
+//
+//task jacocoFullReport(type: JacocoReport, group: 'Coverage reports') {
+//    group = 'Reporting'
+//    description = 'Generates an aggregate report from all subprojects'
+//
+//    // Get list of projects which should be included in the report
+//    def projects = new ArrayList()
+//    subprojects.each { prj ->
+//        projects.add(prj)
+//    }
+//
+//    dependsOn(projects.jacocoReport)
+//
+////    additionalSourceDirs = generateSourceFiles(projects)
+////    sourceDirectories = generateSourceFiles(projects)
+////    classDirectories = generateClassDirs(projects)
+//    executionData run
+////    = files(projects.jacocoReport.executionData)
+//
+//    reports {
+//        html {
+//            enabled true
+////            destination 'build/reports/jacoco/html'
+//        }
+//        xml {
+//            enabled true
+////            destination 'build/reports/jacoco/csv/'
+//        }
+//
+//    }
+//
+////    doFirst {
+////        //noinspection GroovyAssignabilityCheck
+////        executionData = files(executionData.findAll { it.exists() })
+////    }
+//}
+//
+///**
+// *  Generate a FileCollection of all projects source files
+// */
+//FileCollection generateSourceFiles(Collection projects) {
+//    def dirs = []
+//
+//    projects.each { prj ->
+//        dirs.add("${prj.name}/src/main/java")
+//    }
+//
+//    return files(dirs)
+//}
+//
+///**
+// *  Generate a FileCollection of all projects class files
+// */
+//FileCollection generateClassDirs(Collection projects) {
+//    def tree = fileTree('directory does not exists')
+//
+//    projects.each { prj ->
+//        tree += fileTree(
+//                dir: "${prj.name}/build/intermediates/classes/debug",
+//                excludes: [
+//                        '**/R*.class',
+//                        '**/BuildConfig*',
+//                        '**/Lambda$*.class',
+//                        '**/Lambda.class',
+//                        '**/*Lambda.class',
+//                        '**/*Lambda*.class'
+//                ]
+//        )
+//    }
+//
+//    return tree
+//}
+

@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "io.qkits.todoandroid"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+//    sonarqube {
+//        androidVariant 'debug' //PUT REAL TASK NAME HERE
+//
+//        properties {
+//            //PUT REAL PATHS HERE
+//            property "sonar.java.binaries", "build/intermediates/classes/staging/debug,build/tmp/kotlin-classes"
+//            property "sonar.junit.reportPaths", "build/test-results/testDebugUnitTest"
+//            property "sonar.jacoco.reportPaths", "build/jacoco/testDebugUnitTest.exec"
+//            property "sonar.android.lint.report", "build/reports/lint-results-stagingDebug.xml"
+//        }
+//    }
+
+}
+
+//project.tasks["sonarqube"].dependsOn 'test'
+//project.tasks["sonarqube"].dependsOn 'lint'
+//
+//sonarqube {
+//    properties {
+//        property "sonar.host.url", "http://52.187.23.25:9000"
+//        property "sonar.login", "admin"
+//        property "sonar.password", "admin"
+//        property "sonar.projectKey", "AndroidUTDemo"
+//        property "sonar.projectName", "AndroidUTDemo"
+//        property "sonar.projectVersion", "v1"
+//        property "sonar.sourceEncoding", "UTF-8"
+//    }
+//}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}
