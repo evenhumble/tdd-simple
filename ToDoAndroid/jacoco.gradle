@@ -1,0 +1,34 @@
+//        task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
+//            reports {
+//                xml.enabled = true
+//                html.enabled = true
+//            }
+//            sourceDirectories = files('src/java')
+////            classDirectories =  files('build/classes/main')
+//            def fileFilter = ['**/R.class',
+//                              '**/R$*.class',
+//                              '**/BuildConfig.*',
+//                              '**/Manifest*.*',
+//                              '**/*Test*.*',
+//                              'android/**/*.*',
+//                              '**/data/models/*']
+//            def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
+//            def mainSrc = "${project.projectDir}/src/main/java"
+//
+//            sourceDirectories = files([mainSrc])
+//            classDirectories = files([debugTree])
+//            executionData = files("${buildDir}/jacoco/testDebugUnitTest.exec")
+//
+////            executionData = fileTree(dir: "$buildDir", includes: [
+////                    "jacoco/testDebugUnitTest.exec",
+////                    "outputs/*coverage.ec"
+////            ])
+//            doFirst {
+//                new File("$buildDir/intermediates/classes/").eachFileRecurse { file ->
+//                    if (file.name.contains('$$')) {
+//                        file.renameTo(file.path.replace('$$', '$'))
+//                    }
+//                }
+//            }
+
+//        }

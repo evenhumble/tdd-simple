@@ -1,0 +1,66 @@
+> Task :clean UP-TO-DATE
+> Task :app:clean
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:compileDebugAidl NO-SOURCE
+> Task :app:checkDebugManifest
+> Task :app:compileDebugRenderscript NO-SOURCE
+> Task :app:generateDebugBuildConfig
+> Task :app:javaPreCompileDebug
+> Task :app:mainApkListPersistenceDebug
+> Task :app:generateDebugResValues
+> Task :app:generateDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:processDebugManifest
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes NO-SOURCE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:compileReleaseAidl NO-SOURCE
+> Task :app:compileReleaseRenderscript NO-SOURCE
+> Task :app:checkReleaseManifest
+> Task :app:generateReleaseBuildConfig
+> Task :app:javaPreCompileRelease
+> Task :app:mainApkListPersistenceRelease
+> Task :app:generateReleaseResValues
+> Task :app:generateReleaseResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:processReleaseManifest
+> Task :app:preReleaseUnitTestBuild UP-TO-DATE
+> Task :app:mergeDebugResources
+> Task :app:processDebugResources
+
+> Task :app:compileDebugJavaWithJavac
+Gradle may disable incremental compilation as the following annotation processors are not incremental: dagger-compiler-2.15.jar (com.google.dagger:dagger-compiler:2.15), dagger-android-processor-2.15.jar (com.google.dagger:dagger-android-processor:2.15), butterknife-compiler-10.0.0.jar (com.jakewharton:butterknife-compiler:10.0.0).
+Consider setting the experimental feature flag android.enableSeparateAnnotationProcessing=true in the gradle.properties file to run annotation processing in a separate task and make compilation incremental.
+
+> Task :app:processReleaseJavaRes NO-SOURCE
+> Task :app:processReleaseUnitTestJavaRes NO-SOURCE
+> Task :app:mergeReleaseResources
+> Task :app:processReleaseResources
+
+> Task :app:compileReleaseJavaWithJavac
+Gradle may disable incremental compilation as the following annotation processors are not incremental: dagger-compiler-2.15.jar (com.google.dagger:dagger-compiler:2.15), dagger-android-processor-2.15.jar (com.google.dagger:dagger-android-processor:2.15), butterknife-compiler-10.0.0.jar (com.jakewharton:butterknife-compiler:10.0.0).
+Consider setting the experimental feature flag android.enableSeparateAnnotationProcessing=true in the gradle.properties file to run annotation processing in a separate task and make compilation incremental.
+
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:compileDebugUnitTestJavaWithJavac
+
+> Task :app:testDebugUnitTest
+
+> Task :app:javaPreCompileReleaseUnitTest
+> Task :app:compileReleaseUnitTestJavaWithJavac
+
+> Task :app:testReleaseUnitTest
+
+> Task :app:test
+
+BUILD SUCCESSFUL in 19s
+28 actionable tasks: 27 executed, 1 up-to-date
