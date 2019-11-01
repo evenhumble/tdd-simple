@@ -3,12 +3,15 @@ package io.qkits.todoandroid.ui;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import io.qkits.todoandroid.R;
+import io.qkits.todoandroid.mvp.ui.LoginMVPActivity;
+import io.qkits.todoandroid.utils.DateUtil;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -16,19 +19,21 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox checkbox;
     private String lifecycle;
 
+    /**
+     * init app main page
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lifecycle = "onCreate";
-
-        checkbox = (CheckBox) this.findViewById(R.id.checkbox);
+//        checkbox = this.findViewById(R.id.checkbox);
     }
-
-    public void jump(View view){
+    /** jumpt to other vew**/
+    public void jumpGithubLogin(View view){
 
         startActivity(new Intent(this, LoginActivity.class));
-
 //        startActivity(new Intent(this, LoginMVPActivity.class));
 //        startActivity(new Intent(this, LoginDaggerActivity.class));
     }
@@ -37,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this,"Hello UT!",Toast.LENGTH_LONG).show();
     }
 
+
+    public void showDateDialog(View view){
+        AlertDialog alertDate = new AlertDialog.Builder(this).setMessage("this is "+ DateUtil.stampToDate(10000000L))
+                .create();
+        alertDate.show();
+    }
     public void showDialog(View view){
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setMessage("Hello UT！")

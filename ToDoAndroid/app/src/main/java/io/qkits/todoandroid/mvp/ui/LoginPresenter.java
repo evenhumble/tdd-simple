@@ -16,9 +16,6 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
-/**
- * Created by weilu on 2018/1/27.
- */
 
 public class LoginPresenter extends BaseMVPPresenter<LoginMvpView> {
 

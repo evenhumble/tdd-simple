@@ -2,9 +2,6 @@ package io.qkits.todoandroid.mvp.base;
 
 import android.content.Context;
 
-/**
- * Created by weilu on 2018/1/27.
- */
 
 public interface MvpView {
 

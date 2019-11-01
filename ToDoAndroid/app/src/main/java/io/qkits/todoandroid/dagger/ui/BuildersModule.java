@@ -9,8 +9,8 @@ import io.qkits.todoandroid.dagger.base.scope.ActivityScope;
 @Module
 public abstract class BuildersModule {
 
-    @ActivityScope
-    @ContributesAndroidInjector
-    abstract LoginDaggerActivity loginDaggerActivityInjector();
+//    @ActivityScope
+//    @ContributesAndroidInjector
+//    abstract LoginDaggerActivity loginDaggerActivityInjector();
 
 }

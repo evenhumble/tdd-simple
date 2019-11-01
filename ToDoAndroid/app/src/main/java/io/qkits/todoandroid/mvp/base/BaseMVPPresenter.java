@@ -3,9 +3,7 @@ package io.qkits.todoandroid.mvp.base;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 
-/**
- * Created by weilu on 2018/1/27.
- */
+
 
 public abstract class BaseMVPPresenter<T extends MvpView> {
 

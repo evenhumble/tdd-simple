@@ -2,54 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/root"
-    tools:context="com.zl.weilu.androidut.ui.MainActivity">
+    tools:context="io.qkits.todoandroid.ui.MainActivity">
+
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/goto_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="jump"
-        android:text="Activity跳转"/>
+        android:onClick="jumpGithubLogin"
+        android:text="登陆" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/ut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="showToast"
-        android:text="验证Toast"/>
+        android:text="others" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/uistate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="showDialog"
-        android:text="验证Dialog"/>
+        android:text="UI_STATE" />
 
-
-    <LinearLayout
+    <Button
+        android:id="@+id/uistate2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="inverse"
-            android:text="UI组件状态验证"/>
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/checkbox"
-            android:checked="false" />
-
-    </LinearLayout>
-
-
-
+        android:onClick="showDateDialog"
+        android:text="@string/show_date" />
 </LinearLayout>

@@ -25,12 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         mTvSendIdentify = this.findViewById(R.id.tv_send_identify);
 
-        mTvSendIdentify.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getIdentify();
-            }
-        });
+        mTvSendIdentify.setOnClickListener(view -> getIdentify());
     }
 
     private void getIdentify() {

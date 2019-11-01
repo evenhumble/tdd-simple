@@ -1,7 +1,6 @@
 package io.qkits.todoandroid.dagger.ui;
 
 
-
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -28,7 +27,7 @@ public class LoginDaggerPresenter extends BaseMVPPresenter<LoginMvpView> {
     private GithubApi mApi;
 
     @Inject
-    public LoginDaggerPresenter(GithubApi mApi){
+    public LoginDaggerPresenter(GithubApi mApi) {
         this.mApi = mApi;
     }
 
@@ -44,7 +43,7 @@ public class LoginDaggerPresenter extends BaseMVPPresenter<LoginMvpView> {
                     public void onComplete() {
                         mMvpView.countdownComplete();
                     }
-                    
+
                     @Override
                     public void onError(Throwable e) {
                         mMvpView.showToast("倒计时出现错误！");
@@ -59,11 +58,11 @@ public class LoginDaggerPresenter extends BaseMVPPresenter<LoginMvpView> {
     }
 
     public void login(String mobile, String code) {
-        if(mobile.length() != 11){
+        if (mobile.length() != 11) {
             mMvpView.showToast("手机号码不正确");
             return;
         }
-        if(code.length() != 6){
+        if (code.length() != 6) {
             mMvpView.showToast("验证码不正确");
             return;
         }
@@ -74,7 +73,7 @@ public class LoginDaggerPresenter extends BaseMVPPresenter<LoginMvpView> {
                 .doOnSubscribe(new Consumer<Disposable>() {
                     @Override
                     public void accept(Disposable disposable) throws Exception {
-                        if (isViewAttached()){
+                        if (isViewAttached()) {
                             mMvpView.showProgress();
                         }
 
@@ -83,7 +82,7 @@ public class LoginDaggerPresenter extends BaseMVPPresenter<LoginMvpView> {
                 .doAfterTerminate(new Action() {
                     @Override
                     public void run() throws Exception {
-                        if (isViewAttached()){
+                        if (isViewAttached()) {
                             mMvpView.closeProgress();
                         }
                     }
@@ -106,12 +105,13 @@ public class LoginDaggerPresenter extends BaseMVPPresenter<LoginMvpView> {
                     }
 
                     @Override
-                    public void onComplete() {}
+                    public void onComplete() {
+                    }
                 });
     }
 
     @Override
-    public void detachView(){
+    public void detachView() {
         super.detachView();
         mCompositeDisposable.clear();
     }
