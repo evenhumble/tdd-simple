@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="io.qkits.todoandroid.ui.MainActivity">
+
+
+    <Button
+        android:id="@+id/goto_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="jumpGithubLogin"
+        android:text="登陆" />
+
+    <Button
+        android:id="@+id/ut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showToast"
+        android:text="others" />
+
+    <Button
+        android:id="@+id/uistate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showDialog"
+        android:text="UI_STATE" />
+
+    <Button
+        android:id="@+id/uistate2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showDateDialog"
+        android:text="@string/show_date" />
+</LinearLayout>

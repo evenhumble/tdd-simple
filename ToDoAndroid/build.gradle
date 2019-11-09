@@ -1,0 +1,109 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+apply plugin: "org.sonarqube"
+apply plugin: "java"
+apply plugin: 'jacoco'
+
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.1'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8"
+        classpath 'org.jacoco:org.jacoco.core:0.8.5'
+    }
+}
+
+configure(subprojects.findAll()){
+  if (it.name.contains("app")) {
+    apply plugin: 'jacoco'
+
+    task jacocoUnitTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
+
+//    $buildDir = "build" // Location of the build directory for the build Variant
+
+        def coverageSourceDirs = [
+                "src/main/java"
+        ]
+
+        def fileFilter = [
+                '**/R.class',
+                '**/R$*.class',
+                '**/*$ViewInjector*.*',
+                '**/*$ViewBinder*.*',
+                '**/BuildConfig.*',
+                '**/Manifest*.*'
+        ]
+
+        def javaClasses = fileTree(
+                dir: "$buildDir/intermediates/javac/debug/classes",
+                excludes: fileFilter
+        )
+
+        classDirectories = files([ javaClasses ])
+        additionalSourceDirs = files(coverageSourceDirs)
+        sourceDirectories = files(coverageSourceDirs)
+        executionData = fileTree(dir: "$buildDir", includes: [
+                "jacoco/testDebugUnitTest.exec"
+        ])
+
+        reports {
+            xml.enabled = true
+            html.enabled = true
+        }
+    }
+  }else {
+      println("test app")
+  }
+}
+
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url "https://jitpack.io" }
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.5"
+    reportsDir = file("$buildDir/reports")
+}
+
+
+tasks.withType(Test) {
+    jacoco.includeNoLocationClasses = true
+}
+
+
+sonarqube {
+    properties {
+        property "sonar.host.url", "http://52.187.23.25:9000"
+        property "sonar.login", "admin"
+        property "sonar.password", "admin"
+        property "sonar.projectKey", "AndroidUTDemo"
+        property "sonar.projectName", "AndroidUTDemo"
+        property "sonar.projectVersion", "v1"
+        property "sonar.sourceEncoding", "UTF-8"
+        // Below property needs to be use very soon
+        property "sonar.tests", ["src/test/java"]
+        property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.sources", "src/main/java"
+    }
+}
+
