@@ -11,7 +11,7 @@
     <modules>
         <module>xmind-tdd</module>
         <module>helloworld</module>
-        <module>crud-simple-apis</module>
+        <!-- <module>crud-simple-apis</module> -->
     </modules>
     <properties>
         <java.version>12</java.version>
